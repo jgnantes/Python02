@@ -28,8 +28,6 @@ def trigger_water_error():
 
 def test_errors():
     """Simulates custom errors"""
-    print("=== Custom Garden Errors Demo ===")
-
     try:
         print("\nTesting PlantError...")
         trigger_plant_error()
@@ -53,4 +51,5 @@ def test_errors():
 
 
 if __name__ == "__main__":
+    print("=== Custom Garden Errors Demo ===")
     test_errors()

@@ -33,8 +33,6 @@ def garden_operations() -> list:
 
 def test_error_types():
     """Tests all errors in order"""
-    print("=== Garden Error Types Demo ===\n")
-
     for label, op in garden_operations():
         try:
             if label != "Multiple":
@@ -57,4 +55,5 @@ def test_error_types():
 
 
 if __name__ == "__main__":
+    print("=== Garden Error Types Demo ===\n")
     test_error_types()

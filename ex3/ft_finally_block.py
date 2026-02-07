@@ -1,4 +1,6 @@
 def water_plants(plant_list: list):
+    """Iterates each element p in a plant list and 
+    prints a message about watering it if it is valid"""
     print("Opening watering system")
 
     try:
@@ -14,8 +16,7 @@ def water_plants(plant_list: list):
 
 
 def test_watering_system():
-    print("=== Garden Watering System ===\n")
-
+    """Tests water_plants()'s output for a valid and an invalid list"""
     p1: str = "tomato"
     p2: str = "lettuce"
     p3: str = "carrots"
@@ -37,4 +38,5 @@ def test_watering_system():
 
 
 if __name__ == "__main__":
+    print("=== Garden Watering System ===\n")
     test_watering_system()

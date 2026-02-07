@@ -15,7 +15,7 @@ def check_temperature(temp_str: str) -> int:
 
 def test_temperature_input():
     """Tests check_temperature()'s output in 4 different scenarios"""
-    print("=== Garden Temperature Checker ===\n")
+
     for temp in ("25", "abc", "100", "-50"):
         print(f"Testing temperature: {temp}")
         try:
@@ -27,4 +27,5 @@ def test_temperature_input():
 
 
 if __name__ == "__main__":
+    print("=== Garden Temperature Checker ===\n")
     test_temperature_input()
