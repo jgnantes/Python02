@@ -17,14 +17,17 @@ class WaterError(GardenError):
 
 
 def trigger_plant_error():
+    """Triggers the PlantError class at will"""
     raise PlantError("The tomato plant is wilting!")
 
 
 def trigger_water_error():
+    """Triggers the WaterError class at will"""
     raise WaterError("Not enough water in the tank!")
 
 
 def test_errors():
+    """Simulates custom errors"""
     print("=== Custom Garden Errors Demo ===")
 
     try:
@@ -47,6 +50,7 @@ def test_errors():
             print(f"Caught a garden error: {error}")
 
     print("\nAll custom error types work correctly!")
+
 
 if __name__ == "__main__":
     test_errors()

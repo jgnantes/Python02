@@ -1,8 +1,11 @@
 def check_temperature(temp_str: str) -> int:
+    """Tries to cast the temperature string to nd int
+    and raises a different error for each condition"""
     try:
         temp: int = int(temp_str)
     except ValueError:
         raise ValueError(f"{temp_str} is not an integer")
+
     if temp < 0:
         raise ValueError(f"{temp} is too cold for plants (min 0° C)")
     if temp > 40:
@@ -11,6 +14,7 @@ def check_temperature(temp_str: str) -> int:
 
 
 def test_temperature_input():
+    """Tests check_temperature()'s output in 4 different scenarios"""
     print("=== Garden Temperature Checker ===\n")
     for temp in ("25", "abc", "100", "-50"):
         print(f"Testing temperature: {temp}")

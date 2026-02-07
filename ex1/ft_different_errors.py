@@ -1,4 +1,6 @@
-def garden_operations():
+def garden_operations() -> list:
+    """Defines a function for each error case and returns a list
+    of tuples containing their respective labels and callables"""
     def value_error():
         int("abc")
 
@@ -13,12 +15,12 @@ def garden_operations():
             raise FileNotFoundError(f"No such file {file}")
 
     def key_error():
-        d = {"plant" : "ok"}
+        d = {"plant": "ok"}
         d["missing_plant"]
 
     def multiple_errors():
+        test = '2' + 2
         int(test)
-        test2 = '2' + 2
 
     return [
         ("ValueError", value_error),
@@ -30,6 +32,7 @@ def garden_operations():
 
 
 def test_error_types():
+    """Tests all errors in order"""
     print("=== Garden Error Types Demo ===\n")
 
     for label, op in garden_operations():
@@ -47,9 +50,8 @@ def test_error_types():
             print(f"Caught FileNotFoundError: {error}\n")
         except KeyError as error:
             print(f"Caught KeyError: {error}\n")
-        except (NameError, TypeError):
+        except (ValueError, TypeError):
             print("Caught an error, but program continues!\n")
-
 
     print("\nAll error types tested successfully!")
 
