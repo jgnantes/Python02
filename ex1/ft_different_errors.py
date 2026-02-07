@@ -1,32 +1,57 @@
 def garden_operations():
-    try:
-        i: int = 3 / 0
+    def value_error():
         int("abc")
-    except ValueError:
-        raise ValueError("Caught ValueError: invalid literal for int()")
-    except ZeroDivisionError:
-        raise ValueError("Caught ZeroDivisionError: division by zero")
+
+    def zero_division_error():
+        3 / 0
+
+    def file_not_found_error():
+        file = "missing.txt"
+        try:
+            open(file)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"No such file {file}")
+
+    def key_error():
+        d = {"plant" : "ok"}
+        d["missing_plant"]
+
+    def multiple_errors():
+        int(test)
+        test2 = '2' + 2
+
+    return [
+        ("ValueError", value_error),
+        ("ZeroDivisionError", zero_division_error),
+        ("FileNotFoundError", file_not_found_error),
+        ("KeyError", key_error),
+        ("Multiple", multiple_errors),
+    ]
 
 
 def test_error_types():
-    try:
-        garden_operations()
-    except ValueError as error:
-        print("Testing ValueError...")
-        print(f"{error}")
-    except ZeroDivisionError as error:
-        print("Testing ZeroDivisionError...")
-        print(f"{error}")
-    except ZeroDivisionError:
-        print("Testing FileNotFoundError...")
-        print("Caught FileNotFoundError: No such file ")
-    except KeyError:
-        print("Testing KeyError...")
-        #print("Caught KeyError: 'missing\_plant' ")
-    #except MultipleError:
-    #    print("Testing multiple errors together...")
-    #    print("Caught an error, but program continues!\n")
-    print("All error types tested successfully!")
+    print("=== Garden Error Types Demo ===\n")
+
+    for label, op in garden_operations():
+        try:
+            if label != "Multiple":
+                print(f"Testing {label}")
+            else:
+                print("Testing multiple errors together")
+            op()
+        except ValueError as error:
+            print(f"Caught ValueError: {error}\n")
+        except ZeroDivisionError as error:
+            print(f"Caught ZeroDivisionError: {error}\n")
+        except FileNotFoundError as error:
+            print(f"Caught FileNotFoundError: {error}\n")
+        except KeyError as error:
+            print(f"Caught KeyError: {error}\n")
+        except (NameError, TypeError):
+            print("Caught an error, but program continues!\n")
+
+
+    print("\nAll error types tested successfully!")
 
 
 if __name__ == "__main__":
