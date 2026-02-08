@@ -1,5 +1,5 @@
 def water_plants(plant_list: list):
-    """Iterates each element p in a plant list and 
+    """Iterates each element p in a plant list and
     prints a message about watering it if it is valid"""
     print("Opening watering system")
 
