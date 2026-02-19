@@ -13,7 +13,7 @@ def check_temperature(temp_str: str) -> int:
     return temp
 
 
-def test_temperature_input():
+def test_temperature_input() -> None:
     """Tests check_temperature()'s output in 4 different scenarios"""
 
     for temp in ("25", "abc", "100", "-50"):
